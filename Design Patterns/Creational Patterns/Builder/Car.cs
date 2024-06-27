@@ -81,8 +81,6 @@ namespace Design_Patterns.Creational_Patterns.Builder
                 this.NumberOfSeats = numberOfSeats;
                 return this;
             }
-
-
             public Car Build()
             {
                 return new Car(this);

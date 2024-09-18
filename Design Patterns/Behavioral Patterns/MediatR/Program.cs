@@ -11,6 +11,7 @@ internal class Program
 
         var services = new ServiceCollection();
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
 
         var provider = services.BuildServiceProvider();
         var _mediator = provider.GetRequiredService<IMediator>();
